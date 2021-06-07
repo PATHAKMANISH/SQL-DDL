@@ -1,0 +1,27 @@
+// create table which number 1 to 20
+create table table3(id int);
+
+select * from table3 ;
+
+
+// insert number in table
+INSERT INTO table3(id) values
+(1),(2),(3),(4),(5),(6),(7),(8),(9),(10),(11),(12),(13),(14),(15),(16),(17),(18),(19),(20);
+
+// the output should be as below
+odd  even
+1	2
+3	4
+5	6
+7	8
+9	10
+11	12
+13	14
+15	16
+17	18
+19	20
+
+Answer :
+Select id-1 as odd, id as EVEN from table3 where id%2 =0;
+
+
