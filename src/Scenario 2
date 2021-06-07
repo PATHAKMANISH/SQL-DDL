@@ -1,0 +1,52 @@
+SQL Query - day-2
+
+Below is the table of twitter, where one user follows to other. Need to find mutual contacts like user_id 2 follows to 5 and 5 follows to 2 so both are mutual.
+
+Input
+usr_id | follower_id
+-----------|-----------------------
+2       3
+2       5
+2       7
+3       4
+3       5
+5       2
+4       3
+6       7
+7       3
+
+Output -Mutual users and followers
+usr_id -|follower_id
+----------------------
+2        5
+3        4
+----------------------
+
+------------------------------------------------------------
+-- scenario 2 
+create table table4 (user_id Int ,Follower_id Int );
+insert into table4 values
+(2,3),
+(2,5),
+(2,7), 
+(3,4),
+(3,5),
+(5,2),
+(4,3),
+(6,7),
+(7,3);
+select * from table4;
+
+-- solution
+select user_id,Follower_id from table4 where (user_id,Follower_id) in 
+(select user_id,Follower_id from table4) and user_id<Follower_id ;
+
+select a.user_id,a.Follower_id from table4 a ,table4 b 
+where a.user_id=b.Follower_id and a.Follower_id=b.user_id and a.user_id < b.user_id;
+
+SELECT * FROM
+table4 a, table4 b
+WHERE a.user_id = b.follower_id
+AND a.follower_id = b.user_id
+AND a.user_id > b.user_id;
+
