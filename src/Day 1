@@ -1,4 +1,4 @@
-// create table which number 1 to 20
+// create table which has  number 1 to 20
 create table table3(id int);
 
 select * from table3 ;
@@ -22,6 +22,12 @@ odd  even
 19	20
 
 Answer :
+way 1:
 Select id-1 as odd, id as EVEN from table3 where id%2 =0;
+
+way 2:
+Select min(id) odd ,max(Id) even from table3
+group by floor((id+1)/2);
+
 
 
